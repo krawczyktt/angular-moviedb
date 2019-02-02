@@ -8,13 +8,19 @@ import { MovieService } from '../movie.service';
 })
 export class HomeComponent implements OnInit {
   public movieData: Array<any>;
+  public searchQuery: string;
 
   constructor(private movieService: MovieService) {
-    movieService.get().subscribe((data: any) => {
-      this.movieData = data
-      console.log(data);
-    });
+    this.searchQuery = 'ok';
+    
+    this.movieService = movieService;
   }
+
+  public onKey = event => this.load(event.target.value);
+
+  public load = value => this.movieService
+    .get(value)
+    .subscribe((data: any) => { console.log(data); this.movieData = data });
 
   ngOnInit() {
   }
