@@ -1,6 +1,23 @@
-<p>
-  movie-details works!
-</p>
-<mat-form-field class="example-full-width">
-  <input matInput placeholder="Favorite food" value="Sushi" (keyup)="onKey($event)">
+<mat-form-field class="search-field">
+  <input matInput placeholder="Movie" (keyup)="onKey($event)">
 </mat-form-field>
+<div class="col-md-6" *ngFor="let movie of movieData">
+  <a [routerLink]="['/', movie.id]" [state]="movie" class="movie-link">
+    <mat-card class="movie-row">
+      <div class="movie-poster">
+        <div *ngIf="movie.poster_path !== null; then poster else noPoster"></div>
+        <ng-template #poster>
+          <img mat-card-sm-image src="http://image.tmdb.org/t/p/w185/{{ movie.poster_path }}" />
+        </ng-template>
+        <ng-template #noPoster>
+          <div class="no-poster"></div>
+        </ng-template>
+      </div>
+      <mat-card-content class="movie-content">
+        <h3 class="movie-title">{{ movie.title }}</h3>
+        <span class="movie-desc">{{ movie.overview }}</span>
+      </mat-card-content>
+    </mat-card>
+  </a>
+</div>
+Harry Potter Bonus

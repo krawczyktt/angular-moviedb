@@ -1,0 +1,65 @@
+.search-field {
+  width: 100%;
+}
+
+.movie-link {
+  text-decoration: none;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.movie-row {
+  height: 80px;
+  overflow: hidden;
+  display: flex;
+
+  .movie-poster {
+    display: inline-block;
+    margin: -16px;
+    margin-right: 16px;
+
+    img {
+      height: auto;
+    }
+    .no-poster {
+      background: #EFEFEF;
+      width: 80px;
+      height: 100%;
+    }
+  }
+
+  .movie-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .movie-desc {
+    color: #666666;
+    font-family: Arial, Helvetica, sans-serif;
+    display: block;
+    overflow: hidden;
+    position: relative; 
+    line-height: 16px;
+    max-height: 48px; 
+    text-align: justify;  
+    margin-right: 1em;
+    padding-right: 10px;
+  }
+  .movie-desc:before {
+    content: '...';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 12px;
+    transform: translateY(1px);
+  }
+  .movie-desc:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+    background: white;
+  }
+}
