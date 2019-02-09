@@ -14,10 +14,12 @@
         </ng-template>
       </div>
       <mat-card-content class="movie-content">
-        <h3 class="movie-title">{{ movie.title }}</h3>
+        <div class="movie-header">
+          <h3 class="movie-title">{{ movie.title }}</h3>
+          <span class="movie-year">{{ movie.year }}</span>
+        </div>
         <span class="movie-desc">{{ movie.overview }}</span>
       </mat-card-content>
     </mat-card>
   </a>
 </div>
-Harry Potter Bonus

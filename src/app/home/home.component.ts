@@ -8,13 +8,17 @@ import { MovieService } from '../movie.service';
 })
 export class HomeComponent implements OnInit {
   public movieData: Array<any>;
-  public dataLength: Number;
   public searchQuery: string;
 
   constructor(private movieService: MovieService) {
     this.searchQuery = 'ok';
     this.load();
   }
+
+  private parseData = (data) => data.map(movie => ({
+    ...movie,
+    year: new Date(movie.release_date).getFullYear(),
+  }))
 
   public onKey = event => this.load(event.target.value);
 
@@ -23,8 +27,7 @@ export class HomeComponent implements OnInit {
     : this.movieService.get())
       .subscribe((data: any) => {
         console.log(data);
-        this.movieData = data.results;
-        this.dataLength = data.length;
+        this.movieData = this.parseData(data.results);
       });
 
   ngOnInit() {
