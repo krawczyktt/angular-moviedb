@@ -2,7 +2,7 @@
   <input matInput placeholder="Movie" (keyup)="onKey($event)">
 </mat-form-field>
 <div class="col-md-6" *ngFor="let movie of movieData">
-  <a [routerLink]="['/', movie.id]" [state]="movie" class="movie-link">
+  <a [routerLink]="['/', movie.id]" class="movie-link">
     <mat-card class="movie-row">
       <div class="movie-poster">
         <div *ngIf="movie.poster_path !== null; then poster else noPoster"></div>

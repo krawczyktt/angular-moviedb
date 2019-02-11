@@ -1,3 +1,31 @@
-<p>
-  Movie
-</p>
+<div *ngIf="!!movieData.id; then movie else loading"></div>
+<ng-template #movie>
+  <div *ngIf="movieData.backdrop_path !== null">
+    <img class="backdrop" src="http://image.tmdb.org/t/p/original/{{ movieData.backdrop_path }}" />
+  </div>
+  <div class="content">
+    <mat-card class="movie-card">
+      <a [routerLink]="['/']" class="go-back-link">< Go back</a>
+      <div class="movie">
+        <div *ngIf="movieData.poster_path !== null; then poster else noPoster"></div>
+        <ng-template #poster>
+          <img mat-card-sm-image class="movie-poster" src="http://image.tmdb.org/t/p/w185/{{ movieData.poster_path }}" />
+        </ng-template>
+        <ng-template #noPoster>
+          <div class="no-poster"></div>
+        </ng-template>
+        <mat-card-content class="movie-content">
+          <h2>{{ movieData.title }}</h2>
+          <span class="movie-desc">{{ movieData.overview }}</span>
+        </mat-card-content>
+      </div>
+  </mat-card>
+  </div>
+</ng-template>
+<ng-template #loading>
+  <div class="content">
+    <mat-card class="movie-card movie-card-loading">
+      <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+    </mat-card>
+  </div>
+</ng-template>
