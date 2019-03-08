@@ -9,6 +9,7 @@ import { MovieService } from '../movie.service';
 export class HomeComponent implements OnInit {
   public movieData: Array<any>;
   public searchQuery: string;
+  private debounce: number;
 
   constructor(private movieService: MovieService) {
     this.searchQuery = 'ok';
@@ -20,7 +21,13 @@ export class HomeComponent implements OnInit {
     year: new Date(movie.release_date).getFullYear(),
   }))
 
-  public onKey = event => this.load(event.target.value);
+  public onKey = event => {
+    clearTimeout(this.debounce);
+    this.debounce = setTimeout(
+      () => this.load(event.target.value),
+      250,
+    );
+  }
 
   public load = (value = '') => (value
     ? this.movieService.search(value)
