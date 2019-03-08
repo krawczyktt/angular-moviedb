@@ -1,27 +1,50 @@
-# Moviedb
+# Angular MovieDB
+Aplikacja pozwalająca wyszukiwać i przeglądać filmy korzystająca z bazy danych [MovieDB](https://www.themoviedb.org/).
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.1.
+Tomasz Krawczyk  
+krawczyktt@gmail.com  
+Nr albumu: **10309**  
 
-## Development server
+## Wykorzystane technologie
+- [Angular@7.2.0](https://github.com/angular/angular)
+- [Angular Material](https://github.com/angular/material2)
+- [TypeScript](https://github.com/Microsoft/TypeScript)
+- [hammerjs](https://github.com/hammerjs/hammer.js)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Instrukcja instalacji i uruchomienia aplikacji
 
-## Code scaffolding
+### Instalacja aplikacji
+```
+git clone https://github.com/krawczyktt/angular-moviedb.git
+cd angular-moviedb
+npm install
+```
+### Konfigurowanie klucza API
+Następnie należy odwiedzić [stronie developerskiej MovieDB](https://developers.themoviedb.org/3/getting-started/introduction) w celu utworzenia nowego konta i pozyskania kluczu API.  
+Po uzyskaniu klucza, należy go umieścić w pliku `src/environments/environment.ts` w ten sposób:
+```javascript
+export const environment = {
+  production: false,
+  apiKey: 'TUTAJ_WKLEJ_KLUCZ_API',
+};
+```
+### Uruchomienie aplikacji
+Teraz wystarczy uruchomić aplikację poprzez wykonanie komendy
+```
+npm start
+```
+Po wykonaniu komendy `npm start`, aplikacja będzie dostępna pod adresem [http://localhost:4200](http://localhost:4200).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Funkcjonalności
 
-## Build
+- ### Ładowanie danych z zewnętrznego API.
+  - Do korzystania z aplikacji potrzebny jest klucz API, który można pozyskać na [stronie developerskiej MovieDB](https://developers.themoviedb.org/3/getting-started/introduction). Wymagane jest założenie darmowego konta.
+- ### Możliwość przeszukiwania bazy filmów.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+  - Domyślnie wyświetlane są najpopularniejsze produkcje.
+  - Request do serwera podczas wyszukiwania wykonywane są z opóźnienem 250ms (debouncing). Pozwala to ograniczyć zbędne zapytania podczas wpisywania wyszukiwanego tekstu.
+  - Aplikacja wyświetla 20 najtrafniejszych wyników, a każdy z nich składa się z okładki filmu, tytułu oraz opisu skróconego do 3 linii.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- ### Możliwość przeglądania pojedynczego filmu
+  - Po kliknięciu w rekord w wynikash wyszukiwania następuje przekierowanie na podstronę danego filmu. Do routingu wykorzystany jest Angular Router.
+  - Jako tło podstrony wyświetlany jest możliwie wysokiej rozdzielczości obraz filmu.

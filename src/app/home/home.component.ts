@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   private debounce: number;
 
   constructor(private movieService: MovieService) {
-    this.searchQuery = 'ok';
+    this.searchQuery = '';
     this.load();
   }
 
