@@ -1,9 +1,15 @@
 # Angular MovieDB
 Aplikacja pozwalająca wyszukiwać i przeglądać filmy korzystająca z bazy danych [MovieDB](https://www.themoviedb.org/).
 
-Tomasz Krawczyk  
-krawczyktt@gmail.com  
-Nr albumu: **10309**  
+- Tomasz Krawczyk  
+- krawczyktt@gmail.com  
+- Nr albumu: **10309**  
+
+---
+
+Aplikacja jest dostępna pod adresem [https://tkrawczyk-angular-moviedb.firebaseapp.com/](https://tkrawczyk-angular-moviedb.firebaseapp.com/).
+
+---
 
 ## Wykorzystane technologie
 - [Angular@7.2.0](https://github.com/angular/angular)
