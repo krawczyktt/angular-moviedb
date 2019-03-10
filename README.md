@@ -54,3 +54,11 @@ Po wykonaniu komendy `npm start`, aplikacja będzie dostępna pod adresem [http:
 - ### Możliwość przeglądania pojedynczego filmu
   - Po kliknięciu w rekord w wynikash wyszukiwania następuje przekierowanie na podstronę danego filmu. Do routingu wykorzystany jest Angular Router.
   - Jako tło podstrony wyświetlany jest możliwie wysokiej rozdzielczości obraz filmu.
+
+## Roadmap
+- Wygenerowano szkielet projektu przy pomocy [Angular CLI](https://github.com/angular/angular-cli).
+- Dodano dwie podstrony. Stronę główną zawierającą wyszukiwarkę filmów oraz stronę ze szczegółami filmu.
+- Wdrożenie szablonu Material UI oraz dostosowanie styli poszczególnych komponentów aplikacji.
+- Połączenie aplikacji z zewnętrzną bazą filmów - MovieDB API.
+- Usprawnienie komponentu wyszukwiania filmów poprzez zaimplementowanie efektu debounce, który opóźnia żadania do bazy danych przy wpisywaniu tekstu.
+- Skonfigurowanie firebase w celu opublikowania aplikacji pod publicznym adresem.
